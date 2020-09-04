@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+        <!--<link rel="{{ url_for('static', filename='/css/style.css') }}" >-->
+        <link rel="stylesheet" href="../static/css/style.css" >
+    </head>
+    <body>
+        <nav class="navbar">
+            <a class="navbar-brand" onclick="alert()">
+               <!--<img width="640px" height="140px" src="../static/logo.png" alt="EzyRebrander_Logo" />-->
+            </a>
+        </nav>
+        <div class="container-fluid w-50 h-100 d-flex justify-content-center cont">
+            <div class="row w-50 h-100 d-flex justify-content-center">
+                <div class="col-12 theCol" style="color: black; text-align: center;">
+                    <h3>Please select your website FOLDER</h3>
+                    <form class="toFlask" method=post action="/upload" enctype=multipart/form-data style="color: black;">
+                        <input type='file' name='html'/><br>
+                        <br>
+                        <input type=submit value=Upload>
+                    </form>
+                    <small id="tip">With Ezyhtml2image tool we will automaticlly detect your HTML file! </small>
+                </div>
+            </div>
+        </div>
+        <div id="converted">
+        </div>
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="../static/js/html2canvas.min.js"></script>
+        <script src="../static/js/mainjs.js"></script>
+    </body>
+</html>

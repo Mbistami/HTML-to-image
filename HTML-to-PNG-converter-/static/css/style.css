@@ -1,0 +1,26 @@
+body {
+    background: linear-gradient(to right, #232526, #414345);
+}
+.cont{
+    margin-top: 10%;
+    
+}
+
+.cont h3{
+    margin-bottom: 40px;
+}
+
+.toFlask input[type=file]{
+    margin-left: 20%;
+}
+
+.toFlask input[type=submit]{
+    margin-bottom: 5%;
+}
+
+.tip{
+    margin-bottom: 200px;
+}
+.theCol{
+    
+}
