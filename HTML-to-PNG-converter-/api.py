@@ -6,9 +6,8 @@ import time
 import json, ast
 import zipfile
 from zipfile import ZipFile
-import glob
+import uuid
 from werkzeug.utils import secure_filename
-import imgkit
 from rarfile import RarFile
 app= Flask(__name__)
 
@@ -24,8 +23,13 @@ def index():
 
 @app.route('/upload', methods=['POST'])
 def upload():
+    localUuid = uuid.uuid1()
+    print(localUuid)
     os.system('rm *.zip')
+    print(request.method)
+    render_template('converters.html')
     if request.method == 'POST':
+        print(request.files)
         ziped = request.files['html']
         #unzip / unrar compressed file :
         if ziped.filename.endswith('.zip'):
@@ -50,9 +54,10 @@ def upload():
         for path in htmlPaths:
             tmp = path.split('/')
             filename = tmp[-1]
-            print(filename)
-            os.system("google-chrome -headless --screenshot='./images/{}.png' --window-size=1920,10000 --default-background-color=0 {}".format(filename.split('.')[0], path))
-            zipObj.write('./images/{}.png'.format(filename.split('.'))[0])
+            filename = filename.split('.')[0]
+            #cutycapt --url=file:/home/kali/HTML-to-image/HTML-to-PNG-converter-/instance/uploads/web_game/html/index.html --out=./outfilep.png --min-width=1920 --min-height=10000 //  ana l path
+            os.system("cutycapt --url=file:{} --out=./images/{}.png --min-width=1920 --min-height=10000".format(path, filename.split('.')[0]))
+            zipObj.write('./images/{}.png'.format(filename))
             count -= 1
             time.sleep(1)
         zipObj.close()
